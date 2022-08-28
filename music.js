@@ -11,7 +11,7 @@ class Music {
 }
 
 const musiclist = [
-  new Music("Boşver", "Nilüfer", "1.jpeg", "1.mp3"),
-  new Music("Bu da Geçer mi Sevgilim", "Yalın", "2.jpeg", "2.mp3"),
-  new Music("Aramızda Uçurumlar", "Suat Suna", "3.jpeg", "3.mp3"),
+  new Music("Ah Yaşamak Var Ya", "Athena", "1.jpeg", "1.mp3"),
+  new Music("Teslim Olma", "Sokrat St x Ozbi", "2.jpeg", "2.mp3"),
+  new Music("Koca Yaşlı Şişko Dünya", "Adamlar", "3.jpeg", "3.mp3"),
 ];

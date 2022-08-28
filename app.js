@@ -55,7 +55,7 @@ function translateTime(totalSecond) {
   const minute = Math.floor(totalSecond / 60);
   const second = Math.floor(totalSecond % 60);
   const isSingleDigit = second < 10 ? `0${second}` : `${second}`;
-  const time = `${minute} : ${isSingleDigit}`;
+  const time = `${minute}:${isSingleDigit}`;
   return time;
 }
 
