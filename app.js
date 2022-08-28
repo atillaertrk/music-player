@@ -5,7 +5,10 @@ const singer = document.querySelector("#music-details .singer");
 const prev = document.querySelector("#controls #prev");
 const play = document.querySelector("#controls #play");
 const next = document.querySelector("#controls #next");
-const audio = document.querySelector("#audio");
+// const audio = document.querySelector("#audio");
+const duration = document.querySelector("#duration");
+const current_time = document.querySelector("#current-time");
+const progressBar = document.querySelector("#progressbar");
 
 const player = new MusicPlayer(musiclist);
 
@@ -47,3 +50,26 @@ function playMusic() {
   audio.play();
   container.classList.add("playing");
 }
+
+function translateTime(totalSecond) {
+  const minute = Math.floor(totalSecond / 60);
+  const second = Math.floor(totalSecond % 60);
+  const isSingleDigit = second < 10 ? `0${second}` : `${second}`;
+  const time = `${minute} : ${isSingleDigit}`;
+  return time;
+}
+
+audio.addEventListener("loadedmetadata", () => {
+  duration.textContent = translateTime(audio.duration);
+  progressBar.max = audio.duration;
+});
+
+audio.addEventListener("timeupdate", () => {
+  progressBar.value = Math.floor(audio.currentTime);
+  current_time.textContent = translateTime(progressBar.value);
+});
+
+progressBar.addEventListener("input", () => {
+  current_time.textContent = translateTime(progressBar.value);
+  audio.currentTime = progressBar.value;
+});
