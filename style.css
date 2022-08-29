@@ -38,10 +38,28 @@ input#progressbar {
   font-size: 14px;
 }
 #controls {
-  width: 120px;
+  width: 85%;
   font-size: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+}
+#volume-range {
+  width: 80px;
+}
+.sound {
+  display: flex;
+}
+.sound .fa-solid {
+  font-size: 20px;
+  margin-right: 5px;
+}
+.control-group {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.control-btn {
+  margin-right: 20px;
 }

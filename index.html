@@ -27,9 +27,15 @@
         </div>
       </div>
       <div id="controls">
-        <i class="fa-solid fa-backward-step" id="prev"></i>
-        <i class="fa-solid fa-play" id="play"></i>
-        <i class="fa-solid fa-forward-step" id="next"></i>
+        <div class="control-group">
+          <i class="fa-solid fa-backward-step control-btn" id="prev"></i>
+          <i class="fa-solid fa-play control-btn" id="play"></i>
+          <i class="fa-solid fa-forward-step control-btn" id="next"></i>
+        </div>
+        <div class="sound">
+          <i class="fa-solid fa-volume-high"></i>
+          <input type="range" id="volume-range" max="100" value="50" />
+        </div>
       </div>
     </div>
     <script src="/music.js"></script>

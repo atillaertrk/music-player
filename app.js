@@ -9,6 +9,8 @@ const next = document.querySelector("#controls #next");
 const duration = document.querySelector("#duration");
 const current_time = document.querySelector("#current-time");
 const progressBar = document.querySelector("#progressbar");
+const volume = document.querySelector(".sound .fa-solid");
+const volumeRange = document.querySelector("#volume-range");
 
 const player = new MusicPlayer(musiclist);
 
@@ -41,12 +43,12 @@ prev.addEventListener("click", () => {
 });
 
 function pauseMusic() {
-  play.classList = "fa-solid fa-play";
+  play.classList = "fa-solid fa-play control-btn";
   audio.pause();
   container.classList.remove("playing");
 }
 function playMusic() {
-  play.classList = "fa-solid fa-pause";
+  play.classList = "fa-solid fa-pause control-btn";
   audio.play();
   container.classList.add("playing");
 }
@@ -72,4 +74,28 @@ audio.addEventListener("timeupdate", () => {
 progressBar.addEventListener("input", () => {
   current_time.textContent = translateTime(progressBar.value);
   audio.currentTime = progressBar.value;
+});
+
+volume.addEventListener("click", () => {
+  if (volume.classList.contains("fa-volume-high")) {
+    volume.className = "fa-solid fa-volume-off";
+    volume.style = "margin-right: 17.5px;";
+    volumeRange.value = 0;
+    audio.muted = true;
+  } else {
+    volume.className = "fa-solid fa-volume-high";
+    volume.style = "margin-right: 5px;";
+    volumeRange.value = 33;
+    audio.muted = false;
+  }
+});
+volumeRange.addEventListener("input", () => {
+  audio.volume = parseInt(volumeRange.value) / 100;
+  if (audio.volume == 0) {
+    volume.className = "fa-solid fa-volume-off";
+    volume.style = "margin-right: 17.5px;";
+  } else {
+    volume.className = "fa-solid fa-volume-high";
+    volume.style = "margin-right: 5px;";
+  }
 });
