@@ -11,7 +11,8 @@ const current_time = document.querySelector("#current-time");
 const progressBar = document.querySelector("#progressbar");
 const volume = document.querySelector(".sound .fa-solid");
 const volumeRange = document.querySelector("#volume-range");
-
+const musicListText = document.querySelector(".music-list-text");
+const listClose = document.querySelector(".content .fa-circle-xmark");
 const player = new MusicPlayer(musiclist);
 
 window.addEventListener("load", () => {
@@ -98,4 +99,25 @@ volumeRange.addEventListener("input", () => {
     volume.className = "fa-solid fa-volume-high";
     volume.style = "margin-right: 5px;";
   }
+});
+let musicList = "close";
+musicListText.addEventListener("click", () => {
+  if (musicList == "close") {
+    document.querySelector(".right-side").style =
+      "position: relative; width:270px; transition: .3s; min-height: 395px; height: 395px;";
+    document.querySelector(".right-side .content").style =
+      "display:block; transition: all 1s ease 1s;";
+    musicList = "open";
+  } else {
+    document.querySelector(".right-side").style = "width:0px; transition: .3s;";
+    document.querySelector(".right-side .content").style =
+      "display:none; transition: 1s";
+    musicList = "close";
+  }
+});
+listClose.addEventListener("click", () => {
+  document.querySelector(".right-side").style = "width:0px; transition: .3s;";
+  document.querySelector(".right-side .content").style =
+    "display:none; transition: 1s";
+  musicList = "close";
 });

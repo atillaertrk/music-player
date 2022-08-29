@@ -13,28 +13,44 @@
   </head>
   <body>
     <div class="container">
-      <img src="" alt="" id="music-image" />
-      <audio src="" id="audio"></audio>
-      <div id="music-details">
-        <p class="title"></p>
-        <p class="singer"></p>
-      </div>
-      <div id="progress">
-        <input type="range" id="progressbar" />
-        <div class="times">
-          <span id="current-time">0:00 </span>
-          <span id="duration">0:00</span>
+      <div class="left-side">
+        <img src="" alt="" id="music-image" />
+        <audio src="" id="audio"></audio>
+        <div id="music-details">
+          <div>
+            <p class="title"></p>
+            <p class="singer"></p>
+          </div>
+
+          <span class="music-list-text"
+            ><i class="fa-solid fa-bars"></i>Music List</span
+          >
+        </div>
+        <div id="progress">
+          <input type="range" id="progressbar" />
+          <div class="times">
+            <span id="current-time">0:00 </span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div id="controls">
+          <div class="control-group">
+            <i class="fa-solid fa-backward-step control-btn" id="prev"></i>
+            <i class="fa-solid fa-play control-btn" id="play"></i>
+            <i class="fa-solid fa-forward-step control-btn" id="next"></i>
+          </div>
+          <div class="sound">
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" id="volume-range" max="100" value="50" />
+          </div>
         </div>
       </div>
-      <div id="controls">
-        <div class="control-group">
-          <i class="fa-solid fa-backward-step control-btn" id="prev"></i>
-          <i class="fa-solid fa-play control-btn" id="play"></i>
-          <i class="fa-solid fa-forward-step control-btn" id="next"></i>
-        </div>
-        <div class="sound">
-          <i class="fa-solid fa-volume-high"></i>
-          <input type="range" id="volume-range" max="100" value="50" />
+      <div class="right-side">
+        <div class="content">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <ul>
+            <li>Lorem, ipsum dolor.</li>
+          </ul>
         </div>
       </div>
     </div>

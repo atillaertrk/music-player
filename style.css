@@ -3,15 +3,17 @@
 body {
   box-sizing: border-box;
   background: #d6dcdeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .container {
   font-family: "Open Sans", sans-serif;
-  width: 350px;
-  margin: 100px auto;
+  width: fit-content;
   background-color: rgba(38, 83, 125, 0.633);
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   color: aliceblue;
 }
@@ -24,8 +26,12 @@ body {
 }
 #music-details {
   align-self: flex-start;
-  margin-left: 30px;
   font-size: 15px;
+  /* position: relative; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 input#progressbar {
   margin: 15px auto 1px;
@@ -38,7 +44,8 @@ input#progressbar {
   font-size: 14px;
 }
 #controls {
-  width: 85%;
+  width: 100%;
+  margin-top: 18px;
   font-size: 25px;
   display: flex;
   justify-content: space-between;
@@ -55,6 +62,13 @@ input#progressbar {
   font-size: 20px;
   margin-right: 5px;
 }
+.right-side .content .fa-circle-xmark {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 .control-group {
   display: flex;
   justify-content: flex-start;
@@ -62,4 +76,35 @@ input#progressbar {
 }
 .control-btn {
   margin-right: 20px;
+}
+.right-side {
+  width: 0px;
+}
+.left-side {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  margin: 0px auto 10px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  border-right: 1px solid lightgray;
+}
+.music-list-text {
+  background-color: #0077ff78;
+  border-radius: 10px;
+  padding: 1px 10px;
+  transform: rotatez(90deg);
+  margin-right: -40px;
+  cursor: pointer;
+}
+.music-list-text .fa-bars {
+  margin-right: 2px;
+}
+.music-list-text:hover {
+  background-color: #0077ffa9;
+}
+.content {
+  display: none;
 }
