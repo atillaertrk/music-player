@@ -7,10 +7,10 @@ class MusicPlayer {
     return this.musiclist[this.index];
   }
   next() {
-    if (this.musiclist.length == this.index + 1) {
-      this.index = 0;
-    } else {
+    if (this.musiclist.length > this.index + 1) {
       this.index++;
+    } else {
+      this.index = 0;
     }
   }
   previous() {

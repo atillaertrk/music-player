@@ -18,6 +18,7 @@ const player = new MusicPlayer(musiclist);
 window.addEventListener("load", () => {
   let music = player.getMusic();
   display(music);
+  createMusicList(musiclist);
 });
 
 function display(music) {
@@ -104,7 +105,7 @@ let musicList = "close";
 musicListText.addEventListener("click", () => {
   if (musicList == "close") {
     document.querySelector(".right-side").style =
-      "position: relative; width:270px; transition: .3s; min-height: 395px; height: 395px;";
+      "position: relative; width:300px; transition: .3s; min-height: 395px; height: 395px;";
     document.querySelector(".right-side .content").style =
       "display:block; transition: all 1s ease 1s;";
     musicList = "open";
@@ -121,3 +122,31 @@ listClose.addEventListener("click", () => {
     "display:none; transition: 1s";
   musicList = "close";
 });
+
+function createMusicList(musiclist) {
+  for (i in musiclist) {
+    musicListAreaItem = `<li li-index="${i}" onclick="selectedMusic(this)"><span class="artist-title">${musiclist[
+      i
+    ].getName()}</span>
+    <span id="totalTime-${i}" class="totalTime"></span></li>
+    <audio id="music-${i}"src="/mp3/${parseInt(i) + 1}.mp3">
+    `;
+
+    document
+      .querySelector("ul")
+      .insertAdjacentHTML("beforeend", musicListAreaItem);
+
+    const totalTime = document.querySelector(`#totalTime-${i}`);
+    const listAudio = document.querySelector(`#music-${i}`);
+    console.log(totalTime);
+    console.log(listAudio);
+    listAudio.addEventListener("loadedmetadata", () => {
+      totalTime.innerHTML = translateTime(listAudio.duration);
+    });
+  }
+}
+function selectedMusic(li) {
+  player.index = li.getAttribute("li-index");
+  display(player.getMusic());
+  playMusic();
+}
